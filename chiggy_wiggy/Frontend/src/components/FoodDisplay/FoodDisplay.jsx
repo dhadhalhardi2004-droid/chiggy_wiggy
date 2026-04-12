@@ -1,29 +1,26 @@
 import { useContext } from 'react';
 import './FoodDisplay.css';
 import { StoreContext } from '../../context/StoreContext';
+import FoodItem from '../FoodItem/FoodItem';
 
 const FoodDisplay = ({ category }) => {
+
     const context = useContext(StoreContext);
-
-    if (!context) return <div>Loading...</div>;
-
-    const { food_list } = context;
-
+    const { food_list } = context; 
     return (
         <div className='food-display' id='food-display'>
             <h2>Top dishes near you</h2>
+            <div className='food-display-list'>
+                  {food_list.map((item, index) => {
+                    if(category === 'All' || category === item.category){
+                        return  <FoodItem
+                                key={index}id={item._id} name={item.name} description={item.description} price={item.price} image={item.image}/>;
+                    }
+                   
+                })}
+            </div>
 
-            {food_list.map((item, index) => {
-                if (category === "All" || category === item.category) {
-                    return (
-                        <div key={index}>
-                            <img src={item.image} alt={item.name} width="100" />
-                            <p>{item.name}</p>
-                        </div>
-                    );
-                }
-                return null;
-            })}
+          
         </div>
     );
 };
