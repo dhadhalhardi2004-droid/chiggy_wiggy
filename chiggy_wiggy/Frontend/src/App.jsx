@@ -1,29 +1,32 @@
 import React, { useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
-import{Route,Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home/Home'
-import Cart from './pages/Cart/cart'
+import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
+
 const App = () => {
-  const[ShowLogin,setShowLogin]=useState(false)
+  const [ShowLogin, setShowLogin] = useState(false)
+
   return (
     <>
-    {ShowLogin?<LoginPopup/>:<></>}
-    <div className='app'>
+      {ShowLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
 
-      
-      <Navbar setShowLogin={setShowLogin}/>
-    <Routes>
-      <Route path='/' element={<Home/>}>
-         <Route path='/Cart' element={<Cart/>}></Route>
-            <Route path='/' element={<Home/>}></Route>
-            <Route path='/PlaceOrder' element={<PlaceOrder/>}></Route>
-      </Route>
-    </Routes>
-    </div>
-    <Footer/>
+      <div className='app'>
+        <Navbar setShowLogin={setShowLogin} />
+
+        {/* ✅ FIXED ROUTES (only this part changed) */}
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/placeorder' element={<PlaceOrder />} />
+        </Routes>
+
+      </div>
+
+      <Footer />
     </>
   )
 }
