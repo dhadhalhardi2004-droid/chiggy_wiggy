@@ -1,22 +1,141 @@
 .app-download{
-    margin: auto auto;
     margin-top: 100px;
-    font-size: max(3vw, 20px);
-    text-align: center;
-    font-weight: 500;
+    padding: 40px 5%;
 }
-.app-download-platforms{
+
+/* MAIN CONTAINER */
+.app-download-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff3f0;
+    border-radius: 20px;
+    padding: 50px;
+    gap: 40px;
+
+    /* 🔥 SOFT PINK GLOW (clean, not heavy) */
+    box-shadow: 
+        0 10px 30px rgba(255, 120, 120, 0.15),
+        0 0 40px rgba(255, 150, 150, 0.1);
+}
+
+/* LEFT */
+.app-download-left{
+    flex: 1;
+}
+
+.app-download-left h2{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.app-download-left p{
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.app-download-buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.app-download-buttons img{
+    width: 150px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.app-download-buttons img:hover{
+    transform: scale(1.05);
+}
+
+/* RIGHT */
+.app-download-right{
+    flex: 1;
     display: flex;
     justify-content: center;
-    gap: max(2vw, 10px);
-    margin-top: 40px;
 }
-.app-download-platforms img{
-    width: max(30vw, 120px);
-    cursor: pointer;
-    max-width: 180px;
-    transition: 0.5s;
+
+/* PHONE CONTAINER */
+.phone-container{
+    position: relative;
+    width: 350px;
+    padding-top: 35px;
+
+    /* 🔥 SLIDE UP ANIMATION */
+    animation: phoneSlideUp 1s ease-out;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+
+    opacity: 0;
 }
-.app-download-platforms img:hover{
-    transform: scale(1.05);
+
+/* PHONE IMAGE */
+.phone-img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 45px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+}
+
+/* QR OVERLAY */
+.qr-overlay{
+    position: absolute;
+
+    /* ✅ PROPER ALIGNMENT */
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 140px;
+
+    background: white;
+    padding: 6px;
+    border-radius: 12px;
+
+    /* 🔥 SOFT GLOW */
+    box-shadow: 
+        0 0 20px rgba(255, 120, 120, 0.25),
+        0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* HOVER FLOAT EFFECT */
+.phone-container:hover{
+    transform: translateY(-6px);
+    transition: 0.3s ease;
+}
+
+/* 🔥 ANIMATION */
+@keyframes phoneSlideUp {
+    0% {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+    .app-download-container{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .app-download-buttons{
+        justify-content: center;
+    }
+
+    .phone-container{
+        width: 260px;
+    }
+
+    .qr-overlay{
+        width: 110px;
+    }
 }

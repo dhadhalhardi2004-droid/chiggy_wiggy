@@ -59,8 +59,11 @@ import profile_icon from './profile_icon.png'
 import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
+import phone_with_qr from './phone_with_qr.png'
+import qr_code from './qr_code.png' 
 
 export const assets = {
+
     logo,
     basket_icon,
     header_img,
@@ -79,7 +82,10 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    phone_with_qr,
+    qr_code
+
 }
 
 export const menu_list = [
